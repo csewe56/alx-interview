@@ -1,18 +1,34 @@
 #!/usr/bin/python3
-"""`canUnlockAll` module
-"""
+"""BOXES BOXES"""
 
 
 def canUnlockAll(boxes):
-    """A method that determines if all `boxes` can be opened
-        @boxes: A list of list of positive ints
-        rtype: `True` if all boxes can be opened, else `False`
     """
-    if not boxes or type(boxes) is not list:
-        return False
-    unlocked_boxes = [0]
-    for i in unlocked_boxes:
-        for key in boxes[i]:
-            if key not in unlocked_boxes and key < len(boxes):
-                unlocked_boxes.append(key)
-    return len(unlocked_boxes) == len(boxes)
+    take boxes
+        create set of keys
+            go to box0
+                get all keys and add them setofkeys
+            start opening boxes from setofkeys
+                go to each box of each key
+                    and take the keys from it and add them to set of keys
+                keep loping through all setof keys
+            ignore keys that dont have box
+            track opening of boxes by a counter, if at end it
+            equal to lentgh of boxes it mean all boxes unlock
+            OPTIMIZE IDEA :
+                if we add 0 to setofkeys at start, we dont need for in 23
+    """
+    total_boxes = len(boxes)
+    setofkeys = [0]
+    counter = 0
+    index = 0
+
+    while index < len(setofkeys):
+        setkey = setofkeys[index]
+        for key in boxes[setkey]:
+            if 0 < key < total_boxes and key not in setofkeys:
+                setofkeys.append(key)
+                counter += 1
+        index += 1
+
+    return counter == total_boxes - 1

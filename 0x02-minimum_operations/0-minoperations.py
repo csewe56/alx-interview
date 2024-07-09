@@ -26,9 +26,3 @@ def minOperations(n):
         divisor += 1
 
     return operations
-
-# Example usage
-if __name__ == "__main__":
-    n = 9
-    print(f"Number of operations for {n} H characters: {minOperations(n)}")
-
